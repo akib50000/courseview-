@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +36,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -79,6 +73,7 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+    
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -96,6 +91,117 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-youtube-black text-white;
   }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-youtube-lightgray/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-youtube-lightgray/50;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-lg;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+  
+  .link-hover {
+    @apply transition-colors duration-200 hover:text-white/90;
+  }
+}
+
+/* Global styles */
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  min-height: calc(100vh - 56px);
+}
+
+.youtube-transition {
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-icon {
+  @apply w-10 h-10 flex items-center justify-center rounded-full hover:bg-youtube-hover youtube-transition cursor-pointer;
+}
+
+.sidebar-icon {
+  @apply w-6 h-6;
+}
+
+.sidebar-item {
+  @apply flex items-center gap-5 py-2 px-3 rounded-lg youtube-transition hover:bg-youtube-hover cursor-pointer;
+}
+
+.sidebar-text {
+  @apply text-sm font-medium whitespace-nowrap overflow-hidden;
+}
+
+.category-pill {
+  @apply py-1.5 px-3 bg-youtube-gray rounded-lg text-sm font-medium whitespace-nowrap youtube-transition hover:bg-youtube-hover cursor-pointer;
+}
+
+.category-pill.active {
+  @apply bg-white text-youtube-black;
+}
+
+.course-card {
+  @apply w-full youtube-transition rounded-lg overflow-hidden cursor-pointer;
+}
+
+.thumbnail-container {
+  @apply relative w-full pb-[56.25%] bg-youtube-gray overflow-hidden rounded-lg;
+}
+
+.thumbnail {
+  @apply absolute inset-0 w-full h-full object-cover youtube-transition;
+}
+
+.course-info {
+  @apply mt-2 flex gap-3;
+}
+
+.instructor-avatar {
+  @apply flex-shrink-0 w-9 h-9 rounded-full bg-youtube-gray overflow-hidden mt-1;
+}
+
+.instructor-img {
+  @apply w-full h-full object-cover;
+}
+
+.course-title {
+  @apply font-medium line-clamp-2 mb-1 text-sm sm:text-base;
+}
+
+.course-instructor {
+  @apply text-youtube-lightgray text-xs sm:text-sm;
+}
+
+.course-meta {
+  @apply text-youtube-lightgray text-xs sm:text-sm flex items-center;
+}
+
+.course-dot-separator::before {
+  content: "•";
+  @apply mx-1;
 }
