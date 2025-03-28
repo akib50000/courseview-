@@ -16,7 +16,7 @@ const categories = [
 const courses = [
   {
     id: '1',
-    title: 'React JS Crash Course for Beginners - Learn React in 2023',
+    title: 'Learn React in 2023',
     thumbnail: 'https://i.ytimg.com/vi/w7ejDZ8SWv8/maxresdefault.jpg',
     instructorName: 'WebDev Mastery',
     views: '1.2M',
